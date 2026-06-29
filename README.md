@@ -11,6 +11,13 @@ These must be installed (HACS) for the views to render:
 3. **Daylight Calendar Card** — https://github.com/superdingo101/daylight-calendar-card
 4. **Ted's Cards** — https://github.com/tedr91/Teds-Cards
 5. **Ted's Cards Backend** — https://github.com/tedr91/Teds-Cards-Backend
+6. **Custom Icons** — https://github.com/thomasloven/hass-custom_icons (provides the Fluent icon set the navbar uses)
+
+### Required icon sets
+
+The navbar is icon'd with **Fluent UI System Icons** (Iconify, prefix `fluent`). After installing **Custom Icons**, open its **Configure** panel, click **Download** to fetch Iconify, enable the **Fluent UI System Icons** set, and refresh your browser (F5). Everything else uses built-in `mdi:` icons.
+
+> ⚠️ Custom Icons disables Home Assistant's built-in SVG sanitization (so icons can be full-color/animated) — only enable icon sets you trust. The curated Iconify Fluent set is safe.
 
 ## Installation
 

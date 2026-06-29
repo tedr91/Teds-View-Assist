@@ -1,199 +1,50 @@
-# Shared Ted's Navbar Card — the single menu used on every view.
+# Shared 5-section bottom navbar for Ted's View Assist (canonical source).
 #
-# Always snapped to the bottom of the screen (Status icon size / Menu
-# configuration / Menu timeout options are intentionally ignored for now).
+# View Assist loads each view file independently (no cross-file YAML anchors), so
+# this navbar is duplicated into every views/<name>/<name>.yaml and into
+# dashboard/dashboard.yaml. Edit here, then re-propagate to those files.
 #
-# Paste this whole block as the LAST card in every view so it pins to the
-# bottom. Each item follows shared/label-button-navbar.yaml — icon-only, flat —
-# and navigates within the View Assist dashboard (assumed mounted at
-# /view-assist; adjust the paths if yours differs).
+# Icons use Fluent UI System Icons via Custom Icons (hass-custom_icons); enable the
+# "Fluent UI System Icons" set in the Custom Icons panel. Everything else in Ted's
+# View Assist uses built-in mdi: icons.
+#
+# Sections:
+#   1 left/left     - Hold (toggle VA hold mode; pauses auto-revert). Hidden on the
+#                     home layouts (clock + home-*); shown on sub-views.
+#   2 left/left     - reserved (empty)
+#   3 center/center - Home, Calendar, Weather, Thermostat, Cameras, Music, Photos
+#   4 right/right   - Timers, Alarms
+#   5 right/right   - Time (status item)
 type: custom:ted-navbar-card
 theme: ted-style
 alignment: bottom
 bar_type: snap
 size: 56
 sections:
+  - placement: left
+    align: left
+    items:
+      - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:pin-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-hold }, visibility: [{ condition: not, conditions: [{ condition: view-assist, view: [clock, home-handheld, home-wallpanel, home-wallpanel-alt] }] }] }
+  - placement: left
+    align: left
+    items: []
   - placement: center
     align: center
     overflow: true
     items:
-      - type: custom:ted-label-button-card
-        theme: ted-style
-        icon: mdi:home
-        icon_scale: 140
-        icon_color: none
-        show_name: false
-        show_state: false
-        neumorphic: false
-        brushed: false
-        shadow: false
-        transparency: 100
-        tap_action: { action: view-assist-navigate, view: home }
-      - type: custom:ted-label-button-card
-        theme: ted-style
-        icon: mdi:alarm
-        icon_scale: 140
-        icon_color: none
-        show_name: false
-        show_state: false
-        neumorphic: false
-        brushed: false
-        shadow: false
-        transparency: 100
-        tap_action: { action: view-assist-navigate, view: alarms }
-      - type: custom:ted-label-button-card
-        theme: ted-style
-        icon: mdi:timer-outline
-        icon_scale: 140
-        icon_color: none
-        show_name: false
-        show_state: false
-        neumorphic: false
-        brushed: false
-        shadow: false
-        transparency: 100
-        tap_action: { action: view-assist-navigate, view: timers }
-      - type: custom:ted-label-button-card
-        theme: ted-style
-        icon: mdi:calendar
-        icon_scale: 140
-        icon_color: none
-        show_name: false
-        show_state: false
-        neumorphic: false
-        brushed: false
-        shadow: false
-        transparency: 100
-        tap_action: { action: view-assist-navigate, view: calendar }
-      - type: custom:ted-label-button-card
-        theme: ted-style
-        icon: mdi:weather-partly-cloudy
-        icon_scale: 140
-        icon_color: none
-        show_name: false
-        show_state: false
-        neumorphic: false
-        brushed: false
-        shadow: false
-        transparency: 100
-        tap_action: { action: view-assist-navigate, view: weather }
-      - type: custom:ted-label-button-card
-        theme: ted-style
-        icon: mdi:thermostat
-        icon_scale: 140
-        icon_color: none
-        show_name: false
-        show_state: false
-        neumorphic: false
-        brushed: false
-        shadow: false
-        transparency: 100
-        tap_action: { action: view-assist-navigate, view: thermostat }
-      - type: custom:ted-label-button-card
-        theme: ted-style
-        icon: mdi:music
-        icon_scale: 140
-        icon_color: none
-        show_name: false
-        show_state: false
-        neumorphic: false
-        brushed: false
-        shadow: false
-        transparency: 100
-        tap_action: { action: view-assist-navigate, view: music }
-      - type: custom:ted-label-button-card
-        theme: ted-style
-        icon: mdi:image-multiple
-        icon_scale: 140
-        icon_color: none
-        show_name: false
-        show_state: false
-        neumorphic: false
-        brushed: false
-        shadow: false
-        transparency: 100
-        tap_action: { action: view-assist-navigate, view: photos }
-      - type: custom:ted-label-button-card
-        theme: ted-style
-        icon: mdi:cctv
-        icon_scale: 140
-        icon_color: none
-        show_name: false
-        show_state: false
-        neumorphic: false
-        brushed: false
-        shadow: false
-        transparency: 100
-        tap_action: { action: view-assist-navigate, view: cameras }
-      - type: custom:ted-label-button-card
-        theme: ted-style
-        icon: mdi:format-list-checks
-        icon_scale: 140
-        icon_color: none
-        show_name: false
-        show_state: false
-        neumorphic: false
-        brushed: false
-        shadow: false
-        transparency: 100
-        tap_action: { action: view-assist-navigate, view: list }
-      - type: custom:ted-label-button-card
-        theme: ted-style
-        icon: mdi:map
-        icon_scale: 140
-        icon_color: none
-        show_name: false
-        show_state: false
-        neumorphic: false
-        brushed: false
-        shadow: false
-        transparency: 100
-        tap_action: { action: view-assist-navigate, view: map }
-      - type: custom:ted-label-button-card
-        theme: ted-style
-        icon: mdi:robot-happy-outline
-        icon_scale: 140
-        icon_color: none
-        show_name: false
-        show_state: false
-        neumorphic: false
-        brushed: false
-        shadow: false
-        transparency: 100
-        tap_action: { action: view-assist-navigate, view: intent }
-      - type: custom:ted-label-button-card
-        theme: ted-style
-        icon: mdi:information-outline
-        icon_scale: 140
-        icon_color: none
-        show_name: false
-        show_state: false
-        neumorphic: false
-        brushed: false
-        shadow: false
-        transparency: 100
-        tap_action: { action: view-assist-navigate, view: info }
-      - type: custom:ted-label-button-card
-        theme: ted-style
-        icon: mdi:bell-alert
-        icon_scale: 140
-        icon_color: none
-        show_name: false
-        show_state: false
-        neumorphic: false
-        brushed: false
-        shadow: false
-        transparency: 100
-        tap_action: { action: view-assist-navigate, view: alerts }
-      - type: custom:ted-label-button-card
-        theme: ted-style
-        icon: mdi:basketball
-        icon_scale: 140
-        icon_color: none
-        show_name: false
-        show_state: false
-        neumorphic: false
-        brushed: false
-        shadow: false
-        transparency: 100
-        tap_action: { action: view-assist-navigate, view: sports }
+      - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:home-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: home } }
+      - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:calendar-ltr-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: calendar } }
+      - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:weather-partly-cloudy-day-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: weather } }
+      - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:temperature-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: thermostat } }
+      - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:video-security-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: cameras } }
+      - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:music-note-2-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: music } }
+      - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:image-multiple-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: photos } }
+  - placement: right
+    align: right
+    items:
+      - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:timer-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: timers } }
+      - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:clock-alarm-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: alarms } }
+  - placement: right
+    align: right
+    items:
+      - { type: time }
