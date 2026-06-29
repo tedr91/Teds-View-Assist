@@ -21,10 +21,13 @@ The navbar is icon'd with **Fluent UI System Icons** (Iconify, prefix `fluent`).
 
 ## Installation
 
+> **This is not a HACS repository.** Like View Assist's own [dashboards/views repo](https://github.com/dinki/View-Assist), it's a bundle of dashboards, views, and blueprints — not a plugin, integration, or theme — so HACS has no category for it and it's installed manually. (Only the dependencies above come from HACS.)
+
 1. Install the dependencies above via HACS.
-2. Add this repo as an HACS custom repository, or copy `dashboard/` + `views/` into your View Assist config directory.
-3. Copy `wallpapers/` to `config/www/teds_view_assist/wallpapers/` (or your preferred path) and point Home views at them.
-4. Import the blueprints under `custom_sentences/` and `scripts/` as desired.
+2. Download this repo — **Code → Download ZIP**, or `git clone https://github.com/tedr91/Teds-View-Assist`.
+3. Copy `dashboard/` and `views/` into your View Assist config directory (`config/view_assist/`), alongside View Assist's own `dashboard/` and `views/`.
+4. Copy `wallpapers/` to `config/www/teds_view_assist/wallpapers/` (or your preferred path) and point Home views at them.
+5. Import the blueprints under `custom_sentences/` and `scripts/` as desired.
 
 ## Home views
 
