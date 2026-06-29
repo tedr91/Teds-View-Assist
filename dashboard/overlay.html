@@ -1,0 +1,46 @@
+<!--
+HTML for Ted's View Assist Dashboard Overlays
+VERSION: 1.0.0 (Ted's style)
+
+Contract (unchanged from View Assist):
+Each overlay is a top-level div whose id matches the integration overlay name,
+with display:none. Inside it are exactly two divs: one id="listening" and one
+id="processing". On activation the integration sets the active inner div to
+display:block (the other to none) and the top-level div to display:block.
+
+Only the look is restyled here (translucent / frosted / neumorphic, Ted accent).
+All visual styling lives in overlay.css.
+-->
+
+<div id="blur_pop_up" data-name="Blurs the screen with a frosted pop up" style="display: none">
+    <div class="overlay">
+        <div class="container">
+            <div id="listening" class="pill">
+                <button id="button" type="button">
+                    <span class="icon mdi--comment-processing-outline"></span>
+                    How can I assist?
+                </button>
+            </div>
+            <div id="processing" class="pill">
+                <button id="button" type="button">
+                    <span class="icon mdi--dots-horizontal"></span>
+                    Processing&hellip;
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="flashing_bar" data-name="Glowing accent bar at the bottom" style="display: none">
+    <div id="listening">.</div>
+    <div id="processing">.</div>
+</div>
+
+<div id="kitt_bar" data-name="Scanner bar at the bottom" style="display: none">
+    <div id="listening" class="bar-line">
+        <div id="listening-bar" class="highlight">.</div>
+    </div>
+    <div id="processing" class="bar-line">
+        <div id="processing-bar" class="highlight">.</div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+# Shared generic label/button style — use this everywhere OUTSIDE the navbar.
+#
+# Default look for in-view buttons and text labels: neumorphic raised tile with
+# a soft shadow, Ted's style. Copy and override `name` / `icon` / `entity` /
+# `tap_action` as needed. For a text-only label, set `show_icon: false` and
+# `show_state: false` and omit `entity`.
+type: custom:ted-label-button-card
+theme: ted-style
+name: Label
+icon: mdi:information-outline
+show_icon: true
+show_name: true
+show_state: false
+icon_scale: 100
+name_scale: 100
+neumorphic: true
+brushed: false
+shadow: true

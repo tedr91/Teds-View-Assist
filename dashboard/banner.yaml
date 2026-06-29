@@ -1,0 +1,33 @@
+# Ted's View Assist — friendly browser / missing-resources notice.
+#
+# Shows a welcoming banner when the dashboard is opened in a normal web browser
+# (not a View Assist device) OR when a required custom card isn't loaded, and
+# auto-hides on a real View Assist device once everything is present.
+#
+# Implemented with Ted's MessageBox Card (custom:ted-messagebox-card): the
+# show_if conditions are OR'd, so it appears off-device or when cards are
+# missing, and the dismiss is per-browser.
+type: custom:ted-messagebox-card
+theme: ted-style
+severity: info
+display: pinned
+pinned_side: top
+icon: mdi:hand-wave
+title: 👋 Welcome to Ted's View Assist
+message: >-
+  These views are tuned for View Assist devices, so in a normal browser some
+  things may look or behave differently. If anything appears missing, install
+  the dependencies via HACS and refresh.
+docs_url: https://github.com/tedr91/Teds-View-Assist#installation
+docs_label: Setup guide
+dismiss_key: tva-welcome
+show_if:
+  not_view_assist: true
+  missing_cards:
+    - ted-navbar-card
+    - ted-clock-weather-card
+    - ted-label-button-card
+    - daylight-calendar-card
+actions:
+  - { label: Go to Home, icon: mdi:home, action: view-assist-navigate, view: home, variant: primary }
+  - { label: Dismiss, action: dismiss-session }

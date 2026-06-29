@@ -1,0 +1,19 @@
+# Shared Ted's Cover Card config — for future use in views (e.g. a room/control view).
+#
+# Copy and set `entity` (required) plus optional `name` / `icon` / `icon_open`.
+# Vertical rocker with position memory via a helper; tweak per device.
+type: custom:ted-cover-card
+entity: cover.example
+name: Cover
+theme: ted-style
+orientation: vertical
+show_indicator: true
+indicator_color: theme
+brushed: false
+shadow: true
+rocker: true
+rocker_effect: true
+show_name: true
+show_icon: true
+show_state: true
+memory_mode: helper

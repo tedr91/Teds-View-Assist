@@ -1,0 +1,22 @@
+# Shared navbar-item style for Ted's Navbar Card.
+#
+# This is the canonical "button inside the navbar" look. Reuse it for every
+# item in shared/navbar.yaml — copy the block, then set only `icon` and
+# `tap_action.view` per destination.
+#
+# Icon-only, flat (no neumorphic/shadow) so it sits cleanly inside the bar.
+type: custom:ted-label-button-card
+theme: ted-style
+icon: mdi:gesture-tap-button
+icon_scale: 140
+icon_color: none
+show_name: false
+show_state: false
+neumorphic: false
+brushed: false
+shadow: false
+transparency: 100
+nav_button_size: normal
+tap_action:
+  action: view-assist-navigate
+  view: home
