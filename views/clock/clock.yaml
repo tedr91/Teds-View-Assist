@@ -1,14 +1,55 @@
 # Clock — View Assist's default home screen (matches the stock home_screen /view-assist/clock).
 # At-a-glance time, date, weather; ideal for small landscape displays (Echo Show 5/8).
 # A per-device tip can suggest a better-fit home layout. Bottom navbar (see shared/navbar.yaml).
-type: vertical-stack
+#
+# LAYOUT (prototype): custom:layout-card grid-layout frames the content with fixed-px gutters and
+# paints this device's View Assist background behind everything. The background layer is a
+# custom:button-card (already a View Assist dependency) that reads the device's VA sensor from
+# localStorage and uses its `background` attribute — the same mechanism dinki's stock views use.
+type: custom:layout-card
+layout_type: custom:grid-layout
 variables:
   clockcardversion: 999.0.0
+layout:
+  # Fill the viewport — in panel mode the layout otherwise collapses to content
+  # height, which starves the 1fr content row and the full-bleed background.
+  height: 100vh
+  margin: "0"
+  padding: "0"
+  # Fixed-px frame around a single centered content cell — bump 24px to taste.
+  # (Multi-block views can use a 5-col "Xpx 1fr Xpx 1fr Xpx" grid with content in cols 2 & 4.)
+  grid-template-columns: 24px 1fr 24px
+  grid-template-rows: 24px 1fr 24px
+  grid-template-areas: |
+    ". .       ."
+    ". content ."
+    ". .       ."
 cards:
+  # --- Per-device View Assist background (sits behind everything) ---
+  - type: custom:button-card
+    view_layout: { grid-column: 1 / -1, grid-row: 1 / -1 }
+    show_icon: false
+    show_name: false
+    show_label: false
+    show_state: false
+    triggers_update: all
+    styles:
+      card:
+        - background: >-
+            [[[ try { var sensor = localStorage.getItem('view_assist_sensor'); var st = sensor ? hass.states[sensor] : null; var bg = st && st.attributes ? st.attributes.background : null; return bg ? ('center / cover no-repeat url(' + bg + ')') : 'transparent'; } catch (e) { return 'transparent'; } ]]]
+        - background-size: cover
+        - background-color: transparent
+        - border: none
+        - border-radius: "0"
+        - box-shadow: none
+        - height: 100%
+        - width: 100%
+        - min-height: 100%
   # Per-device suggestion tips — each shows only on its matching form factor and is
   # dismissible (Not now = this session; Never show again = persistent; both per device).
   # Small-landscape devices (Echo Show) match none, so the Clock view is left untouched.
   - type: custom:ted-messagebox-card
+    view_layout: { grid-area: content }
     theme: ted-style
     severity: tip
     display: pinned
@@ -24,6 +65,7 @@ cards:
       - { label: Not now, action: dismiss-session }
       - { label: Never show again, action: dismiss }
   - type: custom:ted-messagebox-card
+    view_layout: { grid-area: content }
     theme: ted-style
     severity: tip
     display: pinned
@@ -39,6 +81,7 @@ cards:
       - { label: Not now, action: dismiss-session }
       - { label: Never show again, action: dismiss }
   - type: custom:ted-messagebox-card
+    view_layout: { grid-area: content }
     theme: ted-style
     severity: tip
     display: pinned
@@ -54,6 +97,7 @@ cards:
       - { label: Not now, action: dismiss-session }
       - { label: Never show again, action: dismiss }
   - type: custom:ted-clock-weather-card
+    view_layout: { grid-area: content, place-self: center }
     theme: ted-style
     show_clock: true
     clock_size: large
@@ -65,10 +109,11 @@ cards:
     weather_above_clock: true
     icon_style: fancy
   - type: custom:ted-navbar-card
+    view_layout: { grid-column: 1 / -1, grid-row: 3 / 4 }
     theme: ted-style
     alignment: bottom
     bar_type: snap
-    size: 56
+    size: 42
     size_source: { va_device: true, attribute: status_icons_size }
     sections:
       - placement: left

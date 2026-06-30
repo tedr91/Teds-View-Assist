@@ -15,7 +15,7 @@ cards:
     theme: ted-style
     alignment: bottom
     bar_type: snap
-    size: 56
+    size: 42
     size_source: { va_device: true, attribute: status_icons_size }
     sections:
       - placement: left
