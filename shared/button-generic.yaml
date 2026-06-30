@@ -4,7 +4,7 @@
 # a soft shadow, Ted's style. Copy and override `name` / `icon` / `entity` /
 # `tap_action` as needed. For a text-only label, set `show_icon: false` and
 # `show_state: false` and omit `entity`.
-type: custom:ted-label-button-card
+type: custom:ted-button-card
 theme: ted-style
 name: Label
 icon: mdi:information-outline

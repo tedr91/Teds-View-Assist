@@ -3,7 +3,7 @@ type: vertical-stack
 variables:
   weathercardversion: 999.0.0
 cards:
-  - type: custom:ted-label-button-card
+  - type: custom:ted-button-card
     theme: ted-style
     name: Weather content will be displayed here
     show_icon: false
@@ -21,7 +21,7 @@ cards:
       - placement: left
         align: left
         items:
-          - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:pin-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-hold }, visibility: [{ condition: not, conditions: [{ condition: view-assist, view: [clock, home-handheld, home-wallpanel, home-wallpanel-alt] }] }] }
+          - { type: custom:ted-button-card, theme: ted-style, icon: fluent:pin-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-hold }, visibility: [{ condition: not, conditions: [{ condition: view-assist, view: [clock, home-handheld, home-wallpanel, home-wallpanel-alt] }] }] }
       - placement: left
         align: left
         items: []
@@ -29,19 +29,19 @@ cards:
         align: center
         overflow: true
         items:
-          - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:home-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: home } }
-          - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:calendar-ltr-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: calendar } }
-          - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:weather-partly-cloudy-day-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: weather } }
-          - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:temperature-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: thermostat } }
-          - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:video-security-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: camera } }
-          - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:music-note-2-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: music } }
-          - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:image-multiple-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: photos } }
+          - { type: custom:ted-button-card, theme: ted-style, icon: fluent:home-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: home } }
+          - { type: custom:ted-button-card, theme: ted-style, icon: fluent:calendar-ltr-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: calendar } }
+          - { type: custom:ted-button-card, theme: ted-style, icon: fluent:weather-partly-cloudy-day-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: weather } }
+          - { type: custom:ted-button-card, theme: ted-style, icon: fluent:temperature-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: thermostat } }
+          - { type: custom:ted-button-card, theme: ted-style, icon: fluent:video-security-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: camera } }
+          - { type: custom:ted-button-card, theme: ted-style, icon: fluent:music-note-2-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: music } }
+          - { type: custom:ted-button-card, theme: ted-style, icon: fluent:image-multiple-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: photos } }
       - placement: right
         align: right
         items_source: { va_device: true, attribute: status_icons }
         items:
-          - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:timer-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: timers } }
-          - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:clock-alarm-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: alarm } }
+          - { type: custom:ted-button-card, theme: ted-style, icon: fluent:timer-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: timers } }
+          - { type: custom:ted-button-card, theme: ted-style, icon: fluent:clock-alarm-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: alarm } }
       - placement: right
         align: right
         items:

@@ -26,7 +26,7 @@ show_if:
   missing_cards:
     - ted-navbar-card
     - ted-clock-weather-card
-    - ted-label-button-card
+    - ted-button-card
     - daylight-calendar-card
 actions:
   - { label: Go to Home, icon: mdi:home, action: view-assist-navigate, view: home, variant: primary }

@@ -5,7 +5,7 @@
 # `tap_action.view` per destination.
 #
 # Icon-only, flat (no neumorphic/shadow) so it sits cleanly inside the bar.
-type: custom:ted-label-button-card
+type: custom:ted-button-card
 theme: ted-style
 icon: mdi:gesture-tap-button
 icon_scale: 140
