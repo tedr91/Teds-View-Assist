@@ -1,0 +1,32 @@
+install_all:
+  name: Install all
+  description: Download and install all changed Ted's View Assist assets (dashboard, views, sentence blueprints, backgrounds).
+  fields:
+    force:
+      name: Force
+      description: Reinstall every asset even if its version is unchanged.
+      selector:
+        boolean:
+install_asset:
+  name: Install asset
+  description: Install a single asset class, optionally one named view or blueprint.
+  fields:
+    asset_class:
+      name: Asset class
+      description: The type of asset to install.
+      required: true
+      selector:
+        select:
+          options:
+            - dashboard
+            - views
+            - blueprints
+            - backgrounds
+    name:
+      name: Name
+      description: Optional view name or sentence group (omit to install the whole class).
+      selector:
+        text:
+check_updates:
+  name: Check for updates
+  description: Re-check the repository for a newer release.

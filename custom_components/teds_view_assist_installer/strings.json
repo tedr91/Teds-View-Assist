@@ -1,0 +1,59 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Ted's View Assist",
+        "description": "Installs and updates the Ted's View Assist dashboard, views, sentence blueprints, and backgrounds from GitHub. View Assist must be installed and configured first.",
+        "data": {
+          "repo": "GitHub repository (owner/repo)",
+          "branch": "Branch"
+        }
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "Already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Ted's View Assist",
+        "description": "Change the GitHub source used to install and update assets.",
+        "data": {
+          "repo": "GitHub repository (owner/repo)",
+          "branch": "Branch"
+        }
+      }
+    }
+  },
+  "services": {
+    "install_all": {
+      "name": "Install all",
+      "description": "Download and install all changed Ted's View Assist assets.",
+      "fields": {
+        "force": {
+          "name": "Force",
+          "description": "Reinstall every asset even if its version is unchanged."
+        }
+      }
+    },
+    "install_asset": {
+      "name": "Install asset",
+      "description": "Install a single asset class, optionally one named view or blueprint.",
+      "fields": {
+        "asset_class": {
+          "name": "Asset class",
+          "description": "The type of asset to install."
+        },
+        "name": {
+          "name": "Name",
+          "description": "Optional view name or sentence group (omit to install the whole class)."
+        }
+      }
+    },
+    "check_updates": {
+      "name": "Check for updates",
+      "description": "Re-check the repository for a newer release."
+    }
+  }
+}

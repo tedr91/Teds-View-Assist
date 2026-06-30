@@ -1,6 +1,6 @@
 # Ted's View Assist
 
-A ground-up [View Assist](https://github.com/dinki/view_assist_integration) frontend, designed to look and work consistently across nightstand displays, handhelds, and wall-mounted tablets. Instead of customizing the stock views piecemeal, this provides a cohesive set of Home views, a single bottom navbar, a built-in wallpaper library, and Ted-styled assist overlays.
+A ground-up [View Assist](https://github.com/dinki/view_assist_integration) frontend, designed to look and work consistently across nightstand displays, handhelds, and wall-mounted tablets. Instead of customizing the stock views piecemeal, this provides a cohesive set of Home views, a single bottom navbar, a built-in background library, and Ted-styled assist overlays.
 
 ## Hard dependencies
 
@@ -21,13 +21,20 @@ The navbar is icon'd with **Fluent UI System Icons** (Iconify, prefix `fluent`).
 
 ## Installation
 
-> **This is not a HACS repository.** Like View Assist's own [dashboards/views repo](https://github.com/dinki/View-Assist), it's a bundle of dashboards, views, and blueprints — not a plugin, integration, or theme — so HACS has no category for it and it's installed manually. (Only the dependencies above come from HACS.)
+Ted's View Assist installs itself through a small companion integration (**Ted's View Assist**), which downloads the dashboard, views, sentence blueprints, and backgrounds from this repo and registers them with View Assist.
 
-1. Install the dependencies above via HACS.
-2. Download this repo — **Code → Download ZIP**, or `git clone https://github.com/tedr91/Teds-View-Assist`.
-3. Copy `dashboard/` and `views/` into your View Assist config directory (`config/view_assist/`), alongside View Assist's own `dashboard/` and `views/`.
-4. Copy `wallpapers/` to `config/www/teds_view_assist/wallpapers/` (or your preferred path) and point Home views at them.
-5. Import the blueprints under `custom_sentences/` and `scripts/` as desired.
+1. Install and **configure** the [View Assist integration](https://github.com/dinki/view_assist_integration) first, along with the other dependencies above (all via HACS).
+2. In HACS, add this repo as a **custom repository** with category **Integration** (`https://github.com/tedr91/Teds-View-Assist`), download **Ted's View Assist**, and restart Home Assistant.
+3. Go to **Settings → Devices & Services → Add Integration → Ted's View Assist**. (It defaults to this repo on `main`; point it at a fork in the integration's options if you like.)
+4. First setup downloads and installs everything automatically. After that, an **Update** entity (`update.teds_view_assist`) appears whenever a new release is published — installing it reinstalls only the assets that changed.
+
+Prefer to do it by hand? Copy `dashboard/` and `views/` into `config/view_assist/`, `backgrounds/` into `config/view_assist/images/backgrounds/`, and import the blueprints under `custom_sentences/`.
+
+### Services
+
+- `teds_view_assist_installer.install_all` — install/update all changed assets (`force: true` reinstalls everything).
+- `teds_view_assist_installer.install_asset` — install one `asset_class` (`dashboard` / `views` / `blueprints` / `backgrounds`), optionally a single `name`.
+- `teds_view_assist_installer.check_updates` — re-check the repo for a new release.
 
 ## Home views
 
@@ -44,9 +51,9 @@ Alarms, Timers, Calendar, Weather, Thermostat, Music, Photos, Cameras, List, Map
 
 A single Ted's Navbar Card snapped to the bottom of every view. (Status icon size, menu configuration, and menu timeout options are intentionally ignored for now.)
 
-## Wallpapers
+## Backgrounds
 
-Built-in library under `wallpapers/{general,light,dark}`, seeded from Ted's Themes backgrounds.
+Built-in library under `backgrounds/{general,light,dark}`, seeded from Ted's Themes backgrounds. The installer stages these into `config/view_assist/images/backgrounds/` — View Assist's default rotating-background path — so point a device's background rotation at the matching subfolder.
 
 ## License
 
