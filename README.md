@@ -45,11 +45,11 @@ Prefer to do it by hand? Copy `dashboard/` and `views/` into `config/view_assist
 
 ## Views
 
-Alarms, Timers, Calendar, Weather, Thermostat, Music, Photos, Cameras, List, Map, Intent, Info, Alerts, Sports.
+Alarm, Timers, Calendar, Weather, Thermostat, Music, Photos, Camera, List, Locate, Intent, Info, Alert, Sports, Webpage, Infopic.
 
 ## Menu
 
-A single Ted's Navbar Card snapped to the bottom of every view. (Status icon size, menu configuration, and menu timeout options are intentionally ignored for now.)
+A single Ted's Navbar Card snapped to the bottom of every view. It augments its curated buttons with this device's View Assist status icons and takes its thickness from the device's status icon size. (Menu configuration and menu timeout are intentionally ignored for now.)
 
 ## Backgrounds
 

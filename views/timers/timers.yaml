@@ -1,6 +1,7 @@
 # Timers view — placeholder. Bottom navbar (see shared/navbar.yaml).
-title: Timers
-path: timers
+type: vertical-stack
+variables:
+  timerscardversion: 999.0.0
 cards:
   - type: custom:ted-label-button-card
     theme: ted-style
@@ -15,6 +16,7 @@ cards:
     alignment: bottom
     bar_type: snap
     size: 56
+    size_source: { va_device: true, attribute: status_icons_size }
     sections:
       - placement: left
         align: left
@@ -31,14 +33,15 @@ cards:
           - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:calendar-ltr-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: calendar } }
           - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:weather-partly-cloudy-day-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: weather } }
           - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:temperature-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: thermostat } }
-          - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:video-security-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: cameras } }
+          - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:video-security-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: camera } }
           - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:music-note-2-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: music } }
           - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:image-multiple-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: photos } }
       - placement: right
         align: right
+        items_source: { va_device: true, attribute: status_icons }
         items:
           - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:timer-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: timers } }
-          - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:clock-alarm-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: alarms } }
+          - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:clock-alarm-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: alarm } }
       - placement: right
         align: right
         items:

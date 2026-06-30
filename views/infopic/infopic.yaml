@@ -1,12 +1,11 @@
-# Info view — placeholder (merges the former info + infopic views).
-# Bottom navbar (see shared/navbar.yaml).
+# Infopic view — placeholder. Bottom navbar (see shared/navbar.yaml).
 type: vertical-stack
 variables:
-  infocardversion: 999.0.0
+  infopiccardversion: 999.0.0
 cards:
   - type: custom:ted-label-button-card
     theme: ted-style
-    name: Info content will be displayed here
+    name: Infopic content will be displayed here
     show_icon: false
     show_state: false
     show_name: true

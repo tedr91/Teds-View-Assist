@@ -12,14 +12,19 @@
 #   1 left/left     - Hold (toggle VA hold mode; pauses auto-revert). Hidden on the
 #                     home layouts (clock + home-*); shown on sub-views.
 #   2 left/left     - reserved (empty)
-#   3 center/center - Home, Calendar, Weather, Thermostat, Cameras, Music, Photos
-#   4 right/right   - Timers, Alarms
+#   3 center/center - Home, Calendar, Weather, Thermostat, Camera, Music, Photos
+#   4 right/right   - Timers, Alarm + this device's VA status icons (items_source)
 #   5 right/right   - Time (status item)
+#
+# size_source / items_source use va_device: true to read THIS device's View Assist
+# sensor (resolved from localStorage), so one shared dashboard fits each display.
+# Requires Teds-Cards >= v1.0.3.
 type: custom:ted-navbar-card
 theme: ted-style
 alignment: bottom
 bar_type: snap
 size: 56
+size_source: { va_device: true, attribute: status_icons_size }
 sections:
   - placement: left
     align: left
@@ -36,14 +41,15 @@ sections:
       - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:calendar-ltr-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: calendar } }
       - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:weather-partly-cloudy-day-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: weather } }
       - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:temperature-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: thermostat } }
-      - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:video-security-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: cameras } }
+      - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:video-security-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: camera } }
       - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:music-note-2-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: music } }
       - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:image-multiple-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: photos } }
   - placement: right
     align: right
+    items_source: { va_device: true, attribute: status_icons }
     items:
       - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:timer-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: timers } }
-      - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:clock-alarm-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: alarms } }
+      - { type: custom:ted-label-button-card, theme: ted-style, icon: fluent:clock-alarm-24-regular, icon_scale: 140, icon_color: none, show_name: false, show_state: false, neumorphic: false, brushed: false, shadow: false, transparency: 100, tap_action: { action: view-assist-navigate, view: alarm } }
   - placement: right
     align: right
     items:
